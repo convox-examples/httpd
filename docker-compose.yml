@@ -2,7 +2,3 @@ web:
   image: httpd
   ports:
     - 80:80
-web2:
-  image: httpd
-  ports:
-    - 80:80
