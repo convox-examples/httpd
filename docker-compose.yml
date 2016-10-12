@@ -1,4 +1,4 @@
 web:
   image: httpd
   ports:
-    - 81:81
+    - 80:80
