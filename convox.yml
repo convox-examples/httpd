@@ -1,25 +1,26 @@
 balancers:
-  rack:
-    5443/https: https://rack:3000
+  web:
+    80/http/301: https://:443/*
+    443/https: http://web:80
 services:
-  rack:
-    build: .
-    test: make check test
+  web:
+    image: httpd
+    test: sh -c 'apt-get update && apt-get install figlet && figlet -f lean PRAXIS'
 workflows:
   change:
     create:
-      - create: staging/praxis-$branch
-      - build: staging/praxis-$branch
+      - create: staging/httpd-$branch
+      - build: staging/httpd-$branch
       - test
       - promote
     close:
-      - delete: staging/praxis-$branch
+      - delete: staging/httpd-$branch
   merge:
     demo:
-      - deploy: demo/praxis-demo
+      - deploy: demo/httpd-demo
     master:
-      - build: staging/praxis-staging
+      - build: staging/httpd-staging
       - test
       - promote
-      - copy: production/praxis-production
+      - copy: production/httpd-production
       - promote
