@@ -1,0 +1,26 @@
+balancers:
+  web:
+    80/http/301: https://:443/*
+    443/https: http://web:80
+services:
+  web:
+    image: httpd
+    test: sh -c 'apt-get update && apt-get install figlet && figlet -f lean PRAXIS'
+workflows:
+  change:
+    create:
+      - create: staging/httpd-$branch
+      - build: staging/httpd-$branch
+      - test
+      - promote
+    close:
+      - delete: staging/httpd-$branch
+  merge:
+    demo:
+      - deploy: demo/httpd-demo
+    master:
+      - build: staging/httpd-staging
+      - test
+      - promote
+      - copy: production/httpd-production
+      - promote
