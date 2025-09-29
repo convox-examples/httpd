@@ -1,5 +1,9 @@
 services:
   web:
-    domain: ${DOMAIN}
-    image: httpd
+    build: .
     port: 80
+    health: /
+    scale:
+      count: 1
+      cpu: 250
+      memory: 256
