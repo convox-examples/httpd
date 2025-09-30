@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convox Apache Example</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome to Convox</h1>
+            <p class="subtitle">Apache httpd Static Site Example</p>
+        </header>
+        
+        <main>
+            <section class="info">
+                <h2>🚀 Deployment Successful!</h2>
+                <p>Your Apache web server is running on Convox with:</p>
+                <ul>
+                    <li>✅ Automatic SSL certificates</li>
+                    <li>✅ Load balancing</li>
+                    <li>✅ Zero-downtime deployments</li>
+                    <li>✅ Auto-scaling capabilities</li>
+                </ul>
+            </section>
+            
+            <section class="features">
+                <h2>Example Pages</h2>
+                <nav>
+                    <a href="/about.html" class="button">About Page</a>
+                    <a href="/info.php" class="button">Server Info</a>
+                </nav>
+            </section>
+            
+            <section class="deploy-info">
+                <h2>Quick Commands</h2>
+                
+                <h3>Convox Cloud</h3>
+                <code>convox cloud logs -a httpd -i your-machine</code>
+                <p>View your application logs</p>
+                
+                <code>convox cloud scale web --count 2 -a httpd -i your-machine</code>
+                <p>Scale your application</p>
+                
+                <h3>Convox Rack</h3>
+                <code>convox logs -a httpd</code>
+                <p>View your application logs</p>
+                
+                <code>convox scale web --count 2 -a httpd</code>
+                <p>Scale your application</p>
+            </section>
+        </main>
+        
+        <footer>
+            <p>Powered by Apache httpd on Convox</p>
+            <p><a href="https://docs.convox.com">Documentation</a> | <a href="https://console.convox.com">Console</a></p>
+        </footer>
+    </div>
+</body>
+</html>
